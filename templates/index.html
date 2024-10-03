@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    
+
+
+
+<div id="formulario1" class="formulario mostrar"><BR>
+    <img src="/static/inicio1.gif" alt="Gif de carga" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -35%); width: 50%; height: 70%;">
+    <h1>ESTATES BOY</h1>
+    <form id="from">
+        <button class="Inicio" type="button" onclick="mostrarSiguienteFormulario(1)">Comenzar</button>
+    </form>
+</div>
+
+
+
+
+
+    <div id="formulario2" class="formulario oculto">
+        <h1>Calculadora de Combinaciones de Espacios</h1>
+        <form id="formCalcular">
+            <label for="tamano_terreno">Tamaño del terreno (largo x ancho):</label>
+            <input type="text" id="tamano_terreno" name="tamano_terreno" pattern="\d+(\.\d+)?x\d+(\.\d+)?" required><br><br>
+
+
+             <label for="planta">Tipo de planta:</label>
+        <select id="planta" name="planta" required>
+            <option value="planta_baja">Planta Baja</option>
+            <option value="planta_alta">Planta Alta</option>
+        </select><br><br>
+            
+            <label for="tamano_sala">Tamaño de la sala y comedor:</label>
+            <select id="tamano_sala" name="tamano_sala" onchange="toggleCustomInput('tamano_sala');" required>
+                <option value="pequeña">Pequeña (9)</option>
+                <option value="mediana">Mediana (12)</option>
+                <option value="grande">Grande (18)</option>
+                <option value="personalizado">Personalizado</option>
+            </select>
+            <input type="text" id="tamano_sala_personalizado" name="tamano_sala_personalizado" style="display:none;" pattern="\d+(\.\d+)?x\d+(\.\d+)?"><br><br>
+            
+            <label for="tamano_servicio">Tamaño del área de servicio:</label>
+            <select id="tamano_servicio" name="tamano_servicio" onchange="toggleCustomInput('tamano_servicio')" required>
+                <option value="pequeño">Pequeño (6)</option>
+                <option value="mediano">Mediano (9)</option>
+                <option value="grande">Grande (12)</option>
+                <option value="personalizado">Personalizado</option>
+            </select>
+            <input type="text" id="tamano_servicio_personalizado" name="tamano_servicio_personalizado" style="display:none;" pattern="\d+(\.\d+)?x\d+(\.\d+)?"><br><br>
+            
+            <label for="tamano_cocina">Tamaño de la cocina:</label>
+            <select id="tamano_cocina" name="tamano_cocina" onchange="toggleCustomInput('tamano_cocina')" required>
+                <option value="pequeña">Pequeña (5.2)</option>
+                <option value="mediana">Mediana (9)</option>
+                <option value="grande">Grande(14)</option>
+                <option value="personalizado">Personalizado</option>
+            </select>
+            <input type="text" id="tamano_cocina_personalizado" name="tamano_cocina_personalizado" style="display:none;" pattern="\d+(\.\d+)?x\d+(\.\d+)?"><br><br>
+        
+            <label for="tamano_patio">Tamaño del patio:</label>
+            <select id="tamano_patio" name="tamano_patio" onchange="toggleCustomInput('tamano_patio')" required>
+                <option value="pequeño">Pequeño (6)</option>
+                <option value="mediano">Mediano (12)</option>
+                <option value="grande">Grande(16)</option>
+                <option value="personalizado">Personalizado</option>
+            </select>
+            <input type="text" id="tamano_patio_personalizado" name="tamano_patio_personalizado" style="display:none;" pattern="\d+(\.\d+)?x\d+(\.\d+)?"><br><br>
+            
+            <label for="tamano_cochera">Tamaño de la cochera:</label>
+            <select id="tamano_cochera" name="tamano_cochera" onchange="toggleCustomInput('tamano_cochera')" required>
+                <option value="pequeña">Pequeña (10)</option>
+                <option value="mediana">Mediana (15)</option>
+                <option value="grande">Grande (20)</option>
+                <option value="personalizado">Personalizado</option>
+            </select>
+            <input type="text" id="tamano_cochera_personalizado" name="tamano_cochera_personalizado" style="display:none;" pattern="\d+(\.\d+)?x\d+(\.\d+)?"><br><br>
+        
+            <button type="submit">Calcular combinaciones</button>
+    
+           
+      <button type="button" onclick="mostrarSiguienteFormulario(2)">Siguiente</button>
+      <button type="button" onclick="mostrarFormularioAnterior(2)">Atrás</button>
+        </form>
+        
+    <div class="contenedor">
+        <div id="resultados"></div>
+   
+   </div>
+</div>
+  
+
+
+
+
+    <div id="formulario4" class="formulario oculto"> 
+   <h1>Calculadora de Presupuesto</h1>
+   <form id="presupuesto-form" onsubmit="calcularPresupuesto(event); return false;">
+      <label for="cemento">Cemento (sacos $250):</label>
+      <input type="number" id="cemento" name="cemento" value="0"><br>
+    
+      
+      <label for="arena">Arena (metros cúbicos):</label>
+      <input type="number" id="arena" name="arena" value="0"><br>
+      
+      <label for="grava">Grava (metros cúbicos):</label>
+      <input type="number" id="grava" name="grava" value="0"><br>
+
+      <label for="block">blocks:</label>
+      <input type="number" id="block" name="block" value="0"><br>
+      
+      <label for="castillos">Castillos (piezas):</label>
+      <input type="number" id="castillos" name="castillos" value="0"><br>
+      
+    
+      <button type="submit">Calcular precio materiales</button>
+      
+      <button type="button" onclick="mostrarSiguienteFormulario(4)">Siguiente</button>
+      <button type="button" onclick="mostrarFormularioAnterior(4)">Atrás</button>
+  </form>
+    <div class="contenedor">
+        <div id="resultado"></div>
+   
+   </div>
+</div>
+    
+   
+<div id="gif1" class="oculto" style="position: relative;">
+    <img class="gif-carga" src="/static/Secuencia 01_2.gif" alt="Gif de carga">
+</div>
+
+<div id="formulario3" class="formulario oculto">
+    <h1>Calcular Precio de la Propiedad</h1>
+
+    <form id="propertyForm" onsubmit="return calcularPrecio(event)">
+        <label for="numHabitaciones">Número de Habitaciones:</label>
+        <input type="number" id="numHabitaciones" name="num_habitaciones" ><br><br>
+        
+        <label for="numBanos">Número de Baños:</label>
+        <input type="number" id="numBanos" name="num_banos" ><br><br>
+        
+        <label for="tamanoHabitacion">Tamaño de la Habitación (formato: largo x ancho):</label>
+        <input type="text" id="tamanoHabitacion" name="tamano_habitacion" placeholder="ej., 4x5" value=""><br><br>
+        
+        <label for="tamanoBano">Tamaño del Baño (formato: largo x ancho):</label>
+        <input type="text" id="tamanoBano" name="tamano_bano" placeholder="ej., 3x3"><br><br>
+        
+        <label for="tamanoCocina">Tamaño de la Cocina (formato: largo x ancho):</label>
+        <input type="text" id="tamanoCocina" name="tamano_cocina" placeholder="ej., 3x3"><br><br>
+        
+        <label for="tamanoSala">Tamaño de la Sala (formato: largo x ancho):</label>
+        <input type="text" id="tamanoSala" name="tamano_sala" placeholder="ej., 4x6"><br><br>
+        
+        <label for="tamanoServicio">Tamaño del Área de Servicio (formato: largo x ancho):</label>
+        <input type="text" id="tamanoServicio" name="tamano_servicio" placeholder="ej., 2x3"><br><br>
+        
+        <label for="tamano_cochera">Tamaño de la Cochera (largo x ancho):</label>
+        <input type="text" name="tamano_cochera" id="tamano_cochera"><br><br>
+        
+        <label for="tamano_patio">Tamaño del Patio (largo x ancho):</label>
+        <input type="text" name="tamano_patio" id="tamano_patio"><br><br>
+        
+        <label for="precioHabitacion">Precio por metro cuadrado de Habitaciones:</label>
+        <input type="number" id="precioHabitacion" name="precio_habitacion" ><br><br>
+        
+        <label for="precioBano">Precio por metro cuadrado de Baños:</label>
+        <input type="number" id="precioBano" name="precio_bano" ><br><br>
+        
+        <label for="precioCocina">Precio por metro cuadrado de Cocina:</label>
+        <input type="number" id="precioCocina" name="precio_cocina" ><br><br>
+        
+        <label for="precioSala">Precio por metro cuadrado de Sala:</label>
+        <input type="number" id="precioSala" name="precio_sala" ><br><br>
+        
+        <label for="precioServicio">Precio por metro cuadrado del Área de Servicio:</label>
+        <input type="number" id="precioServicio" name="precio_servicio" ><br><br>
+        
+        <label for="precio_patio">Precio por metro cuadrado de Patio:</label>
+        <input type="number" name="precio_patio" id="precio_patio"><br><br>
+        
+        <label for="precio_cochera">Precio por metro cuadrado de Cochera:</label>
+        <input type="number" name="precio_cochera" id="precio_cochera"><br><br>
+        
+        <button type="submit">Calcular Precio</button>
+        <button type="button" onclick="mostrarSiguienteFormulario(3)">Siguiente</button>
+        <button type="button" onclick="mostrarFormularioAnterior(3)">Atrás</button>
+    </form>
+    <div class="contenedor">
+        <div id="result"></div>
+    </div>
+</div>
+
+    
+
+<div id="gif4" class="oculto" style="position: relative;">
+    <div class="resultados" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10;">
+        <h1>CALCULANDO RESULTADOS</h1>
+    </div>
+    <img src="/static/Secuencia 01_2.gif" alt="Gif de carga" style="position:  absolute; top: 50%; left: 50%; transform: translate(-55%, 87%); z-index: 5;">
+</div>
+
+ 
+<div id="formulario5" class="formulario oculto">
+    <h1>RESULTADOS</h1>
+    <form id="otherForm">
+    
+        <h2>AREAS Y METROS CUADRADOS</h2>
+        <div id="otherFormResult"></div><br>
+        <H2>PRECIO DE LOS MATERIALES</H2>
+  
+        <div id="otroResultado"></div><br>
+        <H2>COMBINACIONES</H2>
+        <div id="otroResultados"></div><br>
+        <input type="submit" value="Enviar">
+        <button type="button" onclick="mostrarFormularioAnterior(5)">Atrás</button>
+        
+    </form>
+</div>
+
+
+
+
+
+
+<script>
+
+document.getElementById("propertyForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    calcularPrecio();
+});
+
+function calcularPrecio() {
+    var formData = new FormData(document.getElementById("propertyForm"));
+    var data = {};
+
+    // Iterar sobre los campos del formulario y agregar solo los que tienen valores
+    for (var [key, value] of formData.entries()) {
+        if (value.trim() !== '') {
+            data[key] = value.trim();
+        }
+    }
+
+    fetch('/calcular_precio_metro_cuadrado', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Formatear el resultado para mostrar en el formulario actual
+        var resultHTML = '<h2></h2>';
+        resultHTML += '<ul>';
+
+        // Define sections and their corresponding properties
+        var sections = {
+            'Area Recomendada': ['area_total'],
+            'Cantidad de Materiales': ['cantidad_cemento', 'cantidad_arena', 'cantidad_grava'],
+            'Precios por Área': ['precio_total', 'precio_habitaciones', 'precio_banos', 'precio_cocina', 'precio_sala', 'precio_servicio', 'precio_cochera', 'precio_patio'],
+            'Cantidad de Bloques por Área': ['bloques_total', 'bloques_habitaciones', 'bloques_banos', 'bloques_cocina', 'bloques_sala']
+        };
+
+        // Function to format and round numbers
+        function formatNumber(value, decimals = 0) {
+            return Number(value).toFixed(decimals);
+        }
+
+        // Loop through sections and properties to construct the HTML for the current form
+        for (var section in sections) {
+            resultHTML += '<br><li><strong>' + section + '</strong>';
+            resultHTML += '<ul>';
+            sections[section].forEach(property => {
+                if (data[property]) {
+                    let formattedValue;
+                    if (property.includes('cantidad') || property.includes('precio')) {
+                        formattedValue = formatNumber(data[property], 2);
+                    } else if (property.includes('bloques') || property.includes('area')) {
+                        formattedValue = formatNumber(data[property], 0);
+                    } else {
+                        formattedValue = data[property];
+                    }
+                    resultHTML += '<li><strong>' + property.replace(/_/g, ' ') + ':</strong> ' + formattedValue + '</li>';
+                }
+            });
+            resultHTML += '</ul>';
+        }
+
+        resultHTML += '</ul>';
+
+        // Set the result in the current form
+        document.getElementById("result").innerHTML = resultHTML;
+
+        // Formatear el resultado para mostrar en el otro formulario
+        var otherFormResultHTML = '<h2></h2>';
+        otherFormResultHTML += '<ul>';
+
+        // Loop through sections and properties to construct the HTML for the other form
+        for (var section in sections) {
+            otherFormResultHTML += '<br><li><strong>' + section + '</strong>';
+            otherFormResultHTML += '<ul>';
+            sections[section].forEach(property => {
+                if (data[property]) {
+                    let formattedValue;
+                    if (property.includes('cantidad') || property.includes('precio')) {
+                        formattedValue = formatNumber(data[property], 2);
+                    } else if (property.includes('bloques') || property.includes('area')) {
+                        formattedValue = formatNumber(data[property], 0);
+                    } else {
+                        formattedValue = data[property];
+                    }
+                    otherFormResultHTML += '<li><strong>' + property.replace(/_/g, ' ') + ':</strong> ' + formattedValue + '</li>';
+                }
+            });
+            otherFormResultHTML += '</ul>';
+        }
+
+        otherFormResultHTML += '</ul>';
+
+        // Set the result in the other form
+        document.getElementById("otherFormResult").innerHTML = otherFormResultHTML;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // En caso de error, mostrar mensaje en ambos formularios
+        document.getElementById("result").innerHTML = '<p class="error">Ocurrió un error: ' + error.message + '</p>';
+        document.getElementById("otherFormResult").innerHTML = '<p class="error">Ocurrió un error: ' + error.message + '</p>';
+    });
+}
+
+
+
+// Agregar un event listener al formulario para llamar a la función calcularPrecio al enviar el formulario
+document.getElementById("propertyForm").addEventListener("submit", calcularPresupuesto);
+
+function calcularPresupuesto(event) {
+    event.preventDefault();
+
+    // Obtener los valores de los materiales
+    var cemento = parseInt(document.getElementById("cemento").value);
+    var block = parseInt(document.getElementById("block").value);
+    var arena = parseInt(document.getElementById("arena").value);
+    var grava = parseInt(document.getElementById("grava").value);
+    var castillos = parseInt(document.getElementById("castillos").value);
+
+    // Realizar la solicitud POST con los valores de los materiales
+    fetch('/calcular_presupuesto', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            cemento: cemento,
+            block: block,
+            arena: arena,
+            grava: grava,
+            castillos: castillos
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Redondear el resultado a dos decimales
+        var presupuestoRedondeado = parseFloat(data).toFixed(2);
+        
+        // Mostrar el resultado en la primera sección
+        document.getElementById("resultado").innerHTML = "Materiales precio total es: $" + presupuestoRedondeado;
+
+        // Mostrar el resultado en la segunda sección
+        document.getElementById("otroResultado").innerHTML = "Materiales precio total es: $" + presupuestoRedondeado;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
+//
+
+function toggleCustomInput(selectId) {
+    var select = document.getElementById(selectId);
+    var customInput = document.getElementById(selectId + "_personalizado");
+
+    if (select.value === "personalizado") {
+        customInput.style.display = "block";
+        customInput.required = true; // Hacer que el campo personalizado sea obligatorio
+    } else {
+        customInput.style.display = "none";
+        customInput.required = false; // Hacer que el campo personalizado no sea obligatorio
+        customInput.value = ''; // Limpiar el valor del campo personalizado
+    }
+}
+
+
+
+document.getElementById('formCalcular').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var formData = new FormData(this);
+
+    fetch('/calcular_combinaciones', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        var resultadoDiv = document.getElementById('resultados');
+        resultadoDiv.innerHTML = ''; // Limpiar resultados anteriores
+
+        var otroResultadoDiv = document.getElementById('otroResultados');
+        otroResultadoDiv.innerHTML = ''; // Limpiar resultados anteriores
+
+        if (data.area_restante) {
+            var areaRestante = document.createElement('p');
+            areaRestante.textContent = 'Metros cuadrados restantes (planta baja): ' + data.area_restante + ' m²';
+            resultadoDiv.appendChild(areaRestante);
+            otroResultadoDiv.appendChild(areaRestante.cloneNode(true));
+        }
+
+        if (data.area_restante_baja) {
+            var areaRestanteBaja = document.createElement('p');
+            areaRestanteBaja.textContent = 'Metros cuadrados restantes (planta baja): ' + data.area_restante_baja + ' m²';
+            resultadoDiv.appendChild(areaRestanteBaja);
+            otroResultadoDiv.appendChild(areaRestanteBaja.cloneNode(true));
+        }
+
+        if (data.area_restante_alta) {
+            var areaRestanteAlta = document.createElement('p');
+            areaRestanteAlta.textContent = 'Metros cuadrados restantes (planta alta): ' + data.area_restante_alta + ' m²';
+            resultadoDiv.appendChild(areaRestanteAlta);
+            otroResultadoDiv.appendChild(areaRestanteAlta.cloneNode(true));
+        }
+
+        var tamanosAreas = document.createElement('p');
+        tamanosAreas.textContent = 'Tamaño de todas las áreas:';
+        resultadoDiv.appendChild(tamanosAreas);
+        otroResultadoDiv.appendChild(tamanosAreas.cloneNode(true));
+
+        // Imprimir el tamaño de todas las áreas
+        for (var key in data.tamanos_areas) {
+            if (data.tamanos_areas.hasOwnProperty(key)) {
+                var area = document.createElement('p');
+                area.textContent = key + ': ' + data.tamanos_areas[key];
+                resultadoDiv.appendChild(area);
+                otroResultadoDiv.appendChild(area.cloneNode(true));
+            }
+        }
+        if (data.tamanos_areas_altas) {
+            for (var key in data.tamanos_areas_altas) {
+                if (data.tamanos_areas_altas.hasOwnProperty(key)) {
+                    var area = document.createElement('p');
+                    area.textContent = key + ': ' + data.tamanos_areas_altas[key];
+                    resultadoDiv.appendChild(area);
+                    otroResultadoDiv.appendChild(area.cloneNode(true));
+                }
+            }
+        }
+
+        if (data.combinaciones.length === 0) {
+            resultadoDiv.textContent = 'No hay combinaciones posibles para los valores ingresados.';
+            otroResultadoDiv.textContent = 'No hay combinaciones posibles para los valores ingresados.';
+        } else {
+            var index = 0;
+
+            function mostrarSiguienteResultado() {
+                if (index < data.combinaciones.length) {
+                    var combinacion = data.combinaciones[index];
+                    var combinacionHTML = '<p>Habitaciones: ' + combinacion.habitaciones + ' (' + combinacion.tamano_habitacion + '), Baños: ' + combinacion.banos + ' (' + combinacion.tamano_bano + '), Metros sin asignar: ' + combinacion.metros_sin_asignar + ' m²</p>';
+                    resultadoDiv.innerHTML += combinacionHTML;
+                    otroResultadoDiv.innerHTML += combinacionHTML;
+                    index++;
+                    setTimeout(mostrarSiguienteResultado, 500); // Mostrar el siguiente resultado después de 500 milisegundos
+                }
+            }
+
+            mostrarSiguienteResultado();
+        }
+    })
+    .catch(error => {
+        console.error('Error al calcular combinaciones:', error);
+        document.getElementById('resultados').textContent = 'Ocurrió un error al procesar la solicitud.';
+        document.getElementById('otroResultados').textContent = 'Ocurrió un error al procesar la solicitud.';
+    });
+});  
+
+
+// Función para mostrar el siguiente formulario
+   
+
+function mostrarFormulario(formulario) {
+    formulario.classList.add('mostrar');
+}
+
+function ocultarFormulario(formulario) {
+    formulario.classList.remove('mostrar');
+}
+
+function mostrarSiguienteFormulario(numeroFormulario) {
+    var formularioActual = document.getElementById('formulario' + numeroFormulario);
+    ocultarFormulario(formularioActual); // Oculta el formulario actual
+
+    var siguienteFormulario = document.getElementById('formulario' + (numeroFormulario + 1));
+    var totalFormularios = document.querySelectorAll('.formulario').length;
+
+    // Mostrar GIF solo al pasar del formulario 4 al 5
+    if (numeroFormulario === 4) {
+        var gifActual = document.getElementById('gif' + numeroFormulario);
+        gifActual.style.display = 'block'; // Muestra el gif actual
+
+        setTimeout(function() {
+            gifActual.style.display = 'none'; // Oculta el gif después de un tiempo
+            mostrarFormulario(siguienteFormulario); // Muestra el siguiente formulario
+        }, 3000); // Cambia este valor (en milisegundos) si deseas ajustar el tiempo de visualización del gif
+    } else {
+        mostrarFormulario(siguienteFormulario); // Muestra el siguiente formulario sin mostrar GIF
+    }
+}
+
+function mostrarFormularioAnterior(numeroFormulario) {
+    var formularioActual = document.getElementById('formulario' + numeroFormulario);
+    ocultarFormulario(formularioActual); // Oculta el formulario actual
+
+    var gifActual = document.getElementById('gif' + numeroFormulario);
+    if (gifActual) {
+        gifActual.style.display = 'none'; // Oculta el gif actual si está visible
+    }
+
+    if (numeroFormulario > 1) {
+        var formularioAnterior = document.getElementById('formulario' + (numeroFormulario - 1));
+        mostrarFormulario(formularioAnterior); // Muestra el formulario anterior
+    }
+}
+
+function mostrarResultados() {
+    // Procesa y muestra los resultados en el último formulario
+    var resultadosDiv = document.getElementById('resultadoss');
+    resultadosDiv.innerHTML = "Aquí van los resultados...";
+    // Muestra el último formulario
+    var formularios = document.querySelectorAll('.formulario');
+    var ultimoFormulario = formularios[formularios.length - 1];
+    ocultarFormulario(ultimoFormulario);
+    mostrarFormulario(ultimoFormulario);
+
+    // Muestra el GIF en el último formulario
+    var gifUltimo = document.getElementById('gif4');
+    gifUltimo.style.display = 'block';
+
+    setTimeout(function() {
+        gifUltimo.style.display = 'none'; // Oculta el gif después de un tiempo
+    }, 3000); // Cambia este valor (en milisegundos) si deseas ajustar el tiempo de visualización del gif
+}
+
+
+</script>
+
+    
+
+
+</body>
+</html>

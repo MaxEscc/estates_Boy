@@ -1,0 +1,181 @@
+body {
+    font-family: 'Press Start 2P', monospace;
+    background-color: #454545;
+    color: #f2b705;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #f2b705;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #2a2a2a;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #f2b705;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: calc(100% - 30px);
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: #3a3a3a;
+    border: none;
+    border-radius: 10px;
+    color: #f2b705;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+input[type="submit"],
+button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #f2b705;
+    color: #454545;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #e0a100;
+}
+
+button[type="button"] {
+    background-color: #f26c05;
+}
+
+button[type="button"]:hover {
+    background-color: #e05605;
+}
+
+/* Estilos CSS */
+.formulario {
+    display: none;
+}
+
+.formulario.mostrar {
+    display: block;
+}
+
+.oculto {
+    display: none;
+}
+
+/* Estilo para el div de resultados */
+.contenedor {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo Vault Boy Fallout */
+.vault-boy {
+    background-color: #454545;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Press Start 2P', monospace;
+    color: #f2b705;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.vault-boy img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.vault-boy h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #f2b705;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.vault-boy p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #f2b705;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.vault-boy a {
+    text-decoration: none;
+    color: #f2b705;
+    font-size: 16px;
+    font-family: 'Press Start 2P', monospace;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.vault-boy a:hover {
+    color: #e0a100;
+}
+
+.Inicio{
+    margin-left: 230px;
+}
+
+.gif-carga {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; /* Ajusta el ancho según tus necesidades */
+    height: 200px; /* Ajusta la altura según tus necesidades */
+}
+#gif4 {
+    position: relative;
+}
+
+.resultados {
+    position: absolute;
+    margin-top: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+#gif4 img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
